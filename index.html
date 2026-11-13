@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Данило — сайты и лендинги для заведений Харькова</title>
+<meta name="description" content="Делаю сайты-визитки и лендинги для кофеен, салонов и мастеров. Харьков. Цену называю до начала работы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f6f4;
+    --surface: #ffffff;
+    --ink: #14161a;
+    --muted: #5c626b;
+    --line: #dcdcd7;
+    --accent: #1f4fd8;       /* синий для кнопок и акцентов */
+    --on-accent: #ffffff;
+    --tag-bg: #e9ecf6;
+    --tag-ink: #2b3a73;
+    --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101215; --surface: #181b20; --ink: #eef0f3; --muted: #9aa1ab; --line: #2c3037;
+      --accent: #6f93ff; --on-accent: #0c1020; --tag-bg: #232a45; --tag-ink: #b9c7ff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101215; --surface: #181b20; --ink: #eef0f3; --muted: #9aa1ab; --line: #2c3037;
+    --accent: #6f93ff; --on-accent: #0c1020; --tag-bg: #232a45; --tag-ink: #b9c7ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { min-height: 100%; background: var(--bg); scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--font); font-size: 1.0625rem; line-height: 1.6; color: var(--ink); background: var(--bg); -webkit-text-size-adjust: 100%; }
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px;
+    border-radius: 8px; border: 1.5px solid var(--accent); font: 700 1rem/1 var(--font); text-decoration: none; cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, opacity .2s ease;
+  }
+  .btn-solid { background: var(--accent); color: var(--on-accent); }
+  .btn-solid:hover { opacity: .88; }
+  .btn-line { background: transparent; color: var(--accent); }
+  .btn-line:hover { background: var(--accent); color: var(--on-accent); }
+  .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+
+  .top { padding: 20px 0; }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -.01em; }
+  .top nav { display: flex; gap: 26px; }
+  .top nav a { text-decoration: none; color: var(--muted); font-weight: 500; }
+  .top nav a:hover { color: var(--ink); }
+  @media (max-width: 640px) { .top nav { display: none; } }
+
+  .hero { padding: clamp(48px, 9vw, 110px) 0 clamp(48px, 8vw, 90px); }
+  .hero h1 { font-size: clamp(2.3rem, 6.6vw, 4.6rem); line-height: 1.04; font-weight: 800; letter-spacing: -.03em; max-width: 17ch; }
+  .hero p { margin-top: 22px; max-width: 46ch; font-size: 1.2rem; color: var(--muted); }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .hero .wrap > * { animation: rise .7s ease both; }
+  .hero .wrap > :nth-child(2) { animation-delay: .1s; }
+  .hero .wrap > :nth-child(3) { animation-delay: .2s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .section { padding: clamp(48px, 8vw, 88px) 0; border-top: 1px solid var(--line); }
+  .section h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+  .section .lead { margin-top: 12px; color: var(--muted); max-width: 52ch; }
+
+  /* Работы */
+  .grid { display: grid; gap: 22px; grid-template-columns: repeat(3, 1fr); margin-top: 40px; }
+  .card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform .2s ease, border-color .2s ease; }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card .shot { display: block; aspect-ratio: 8 / 5; background: var(--line); }
+  .card .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .card .body { display: flex; flex-direction: column; flex: 1; padding: 20px 20px 22px; }
+  .tag { align-self: flex-start; padding: 3px 10px; border-radius: 6px; background: var(--tag-bg); color: var(--tag-ink); font-size: .8rem; font-weight: 700; }
+  .card h3 { margin-top: 12px; font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; }
+  .card p { margin-top: 8px; color: var(--muted); font-size: .98rem; flex: 1; }
+  .card .btn { margin-top: 18px; min-height: 46px; font-size: .95rem; }
+
+  /* Услуги и шаги */
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .cols li { padding-top: 18px; border-top: 3px solid var(--ink); }
+  .cols h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -.01em; }
+  .cols p { margin-top: 8px; color: var(--muted); font-size: .98rem; }
+  .cols .n { display: block; margin-bottom: 8px; color: var(--accent); font-weight: 800; font-size: .95rem; }
+
+  /* Контакты */
+  .contacts .box { margin-top: 32px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: end; }
+  .phone { display: block; font-size: clamp(1.9rem, 5.5vw, 3.2rem); font-weight: 800; letter-spacing: -.02em; text-decoration: none; line-height: 1.1; }
+  .phone:hover { color: var(--accent); }
+  .contacts .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .contacts dl { margin: 0; border-top: 1px solid var(--line); }
+  .contacts .r { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .contacts dt { color: var(--muted); font-size: .92rem; padding-top: 2px; }
+  .contacts dd { margin: 0; font-weight: 600; }
+
+  footer { padding: 28px 0 44px; color: var(--muted); font-size: .92rem; border-top: 1px solid var(--line); }
+
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } .cols { grid-template-columns: 1fr; gap: 26px; } .contacts .box { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero .wrap > * { animation: none; } .card, .btn { transition: none; } .card:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <!-- ЗАМЕНИТЬ: имя или название -->
+    <a class="logo" href="#top">Данило · сайты</a>
+    <nav aria-label="Разделы">
+      <a href="#works">Работы</a>
+      <a href="#services">Что делаю</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Сайты для кофеен, салонов и мастеров Харькова</h1>
+      <p>Визитки и лендинги, которые аккуратно выглядят на телефоне. Цену называю до начала работы.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#contacts">Написать мне</a>
+        <a class="btn btn-line" href="#works">Смотреть работы</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="works">
+    <div class="wrap">
+      <h2>Работы</h2>
+      <p class="lead">Часть работ учебные или демонстрационные, это указано на каждой карточке.</p>
+      <ul class="grid" id="grid"></ul>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <h2>Что делаю</h2>
+      <ul class="cols">
+        <li><h3>Сайт-визитка и лендинг</h3><p>Один экран или несколько: кто вы, что предлагаете, цены, адрес и кнопка для связи.</p></li>
+        <li><h3>Страница-ссылка и QR-меню</h3><p>Одна страница для Instagram или QR-код на столике. Быстро и недорого.</p></li>
+        <li><h3>Правки сайта</h3><p>Поменять текст, цены, фото или цвета на уже существующем сайте.</p></li>
+      </ul>
+
+      <h2 style="margin-top: clamp(48px, 8vw, 88px)">Как мы работаем</h2>
+      <ol class="cols">
+        <li><span class="n">01</span><h3>Обсуждаем задачу</h3><p>Вы рассказываете, что нужно. Я называю цену и срок до начала работы.</p></li>
+        <li><span class="n">02</span><h3>Делаю сайт</h3><p>Показываю первую версию. Правки в рамках договорённости включены в цену.</p></li>
+        <li><span class="n">03</span><h3>Запускаем</h3><p>Выкладываю сайт в интернет и проверяю на телефоне.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section contacts" id="contacts">
+    <div class="wrap">
+      <h2>Давайте обсудим ваш сайт</h2>
+      <div class="box">
+        <div>
+          <!-- ЗАМЕНИТЬ: номер, Telegram и Instagram -->
+          <a class="phone" href="tel:+380977416185">+380 97 741 61 85</a>
+          <div class="links">
+            <a class="btn btn-solid" href="https://t.me/username" target="_blank" rel="noopener">Telegram</a>
+            <a class="btn btn-line" href="https://instagram.com/username" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <dl>
+          <div class="r"><dt>Город</dt><dd>Харьков</dd></div>
+          <div class="r"><dt>Ответ</dt><dd>Пн–Пт, 8:00–16:00. Вне этих часов отвечу вечером</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Данило · сайты и лендинги, Харьков</div>
+</footer>
+
+<script>
+(function () {
+  var grid = document.getElementById("grid");
+
+  /* Запасной список: показывается, только если файл data/works.json недоступен
+     (например, если открыть index.html прямо с компьютера двойным кликом). */
+  var FALLBACK = {"works": [{"title": "Тёплый угол — кофейня", "tag": "Учебная работа", "text": "Мягкий минимализм: меню с ценами, блок «О кофейне», контакты и кнопка «Построить маршрут».", "url": "", "img": "/media/teply.jpg"}, {"title": "M4STER — мастер по ремонту", "tag": "Личный проект", "text": "Графитовый и оранжевый, технический стиль: услуги, этапы работы и контакты.", "url": "", "img": "/media/m4ster.jpg"}, {"title": "Артём Ковалёв — адвокат", "tag": "Учебная работа", "text": "Строгий и спокойный сайт без фото: направления, цены, вопросы и ответы, форма заявки.", "url": "", "img": "/media/advokat.jpg"}, {"title": "Космос", "tag": "Демо с анимацией", "text": "Страница с мерцающими звёздами, падающими звёздами и планетой.", "url": "", "img": "/media/space.jpg"}, {"title": "Морской бриз", "tag": "Демо с анимацией", "text": "Волны, лучи света, пузырьки и рыбы. При прокрутке страница уходит «под воду».", "url": "", "img": "/media/sea.jpg"}, {"title": "Лесной уголок", "tag": "Демо с анимацией", "text": "Качающиеся ветки и падающие листья на светлом фоне.", "url": "", "img": "/media/leaves.jpg"}]};
+
+  function imgPath(p) { return String(p || "").replace(/^\//, ""); }
+  function safeUrl(u) { u = String(u || "").trim(); return /^https?:\/\//i.test(u) ? u : ""; }
+
+  function render(list) {
+    grid.innerHTML = "";
+    if (!list.length) {
+      var empty = document.createElement("li");
+      empty.textContent = "Скоро здесь появятся работы.";
+      grid.appendChild(empty);
+      return;
+    }
+    list.forEach(function (w) {
+      var li = document.createElement("li");
+      li.className = "card";
+
+      var shot = document.createElement("div");
+      shot.className = "shot";
+      var img = document.createElement("img");
+      img.src = imgPath(w.img);
+      img.alt = "Превью сайта: " + (w.title || "");
+      img.loading = "lazy";
+      shot.appendChild(img);
+
+      var body = document.createElement("div");
+      body.className = "body";
+
+      var tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = w.tag || "";
+
+      var h3 = document.createElement("h3");
+      h3.textContent = w.title || "";
+
+      var p = document.createElement("p");
+      p.textContent = w.text || "";
+
+      var a = document.createElement("a");
+      a.className = "btn btn-line";
+      var url = safeUrl(w.url);
+      if (url) {
+        a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Открыть сайт";
+      } else {
+        a.href = "#"; a.setAttribute("aria-disabled", "true"); a.textContent = "Ссылка скоро";
+      }
+
+      body.appendChild(tag); body.appendChild(h3); body.appendChild(p); body.appendChild(a);
+      li.appendChild(shot); li.appendChild(body);
+      grid.appendChild(li);
+    });
+  }
+
+  fetch("data/works.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) { throw new Error("no file"); } return r.json(); })
+    .then(function (d) { render(d.works || []); })
+    .catch(function () { render(FALLBACK.works); });
+})();
+</script>
+</body>
+</html>
