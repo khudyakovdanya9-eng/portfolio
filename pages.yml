@@ -1,0 +1,49 @@
+# Настройка панели Pages CMS для портфолио.
+
+media:
+  input: media
+  output: /media
+
+content:
+  - name: works
+    label: Мои работы
+    type: file
+    path: data/works.json
+    format: json
+    fields:
+      - name: works
+        label: Проекты
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Название (по-английски)
+            type: string
+          - name: tag
+            label: Метка
+            type: select
+            options:
+              values:
+                - Client project
+                - Personal project
+                - Concept project
+                - Animated demo
+          - name: text
+            label: Короткое описание (по-английски)
+            type: text
+          - name: url
+            label: Ссылка на сайт-пример (https://...). Если пусто, кнопка не показывается
+            type: string
+          - name: img
+            label: Картинка (скриншот сайта)
+            type: image
+
+  - name: settings
+    label: Настройки
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: fiverr_url
+        label: Ссылка на мой Fiverr (https://www.fiverr.com/...). Пока пусто, кнопка заказа скрыта
+        type: string
