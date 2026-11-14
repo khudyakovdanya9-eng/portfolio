@@ -1,44 +1,44 @@
 {
   "works": [
     {
-      "title": "Тёплый угол — кофейня",
-      "tag": "Учебная работа",
-      "text": "Мягкий минимализм: меню с ценами, блок «О кофейне», контакты и кнопка «Построить маршрут».",
+      "title": "Café website",
+      "tag": "Concept project",
+      "text": "Warm, minimal one-page site: menu with prices, about section, contacts and a route button.",
       "url": "",
       "img": "/media/teply.jpg"
     },
     {
-      "title": "M4STER — мастер по ремонту",
-      "tag": "Личный проект",
-      "text": "Графитовый и оранжевый, технический стиль: услуги, этапы работы и контакты.",
+      "title": "Renovation master website",
+      "tag": "Personal project",
+      "text": "Graphite and orange, technical style: services, work stages and contacts.",
       "url": "",
       "img": "/media/m4ster.jpg"
     },
     {
-      "title": "Артём Ковалёв — адвокат",
-      "tag": "Учебная работа",
-      "text": "Строгий и спокойный сайт без фото: направления, цены, вопросы и ответы, форма заявки.",
+      "title": "Lawyer website",
+      "tag": "Concept project",
+      "text": "Calm, strict design without photos: practice areas, prices, FAQ and a contact form.",
       "url": "",
       "img": "/media/advokat.jpg"
     },
     {
-      "title": "Космос",
-      "tag": "Демо с анимацией",
-      "text": "Страница с мерцающими звёздами, падающими звёздами и планетой.",
+      "title": "Space",
+      "tag": "Animated demo",
+      "text": "Twinkling stars, shooting stars and a floating planet on a single page.",
       "url": "",
       "img": "/media/space.jpg"
     },
     {
-      "title": "Морской бриз",
-      "tag": "Демо с анимацией",
-      "text": "Волны, лучи света, пузырьки и рыбы. При прокрутке страница уходит «под воду».",
+      "title": "Sea breeze",
+      "tag": "Animated demo",
+      "text": "Waves, light rays, bubbles and fish. The page slides under the water as you scroll.",
       "url": "",
       "img": "/media/sea.jpg"
     },
     {
-      "title": "Лесной уголок",
-      "tag": "Демо с анимацией",
-      "text": "Качающиеся ветки и падающие листья на светлом фоне.",
+      "title": "Forest corner",
+      "tag": "Animated demo",
+      "text": "Swaying branches and falling leaves on a light background.",
       "url": "",
       "img": "/media/leaves.jpg"
     }
